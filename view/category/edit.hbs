@@ -1,0 +1,30 @@
+{{#section 'title'}}
+	Edit Category
+{{/section}}
+
+{{#with category}}
+<form action="" method="POST" role="form">
+	<div class="form-group">
+		<label for="">#</label>
+		<input type="text" class="form-control" id="" name="ProId" value="{{ProID1}}" readonly>
+	</div>
+	<div class="form-group">
+		<label for="">Category Name</label>
+		<input type="text" class="form-control" id="" name="ProName" value="{{ProName1}}">
+	</div>
+
+<div class="form-group">
+		<label for="">Decription</label>
+		<input type="text" class="form-control" id="" name="ProNXB" value="{{ProNXB1}}">
+	</div>
+
+	<a class="btn btn-default" href="/category/list" role="button">
+		<span class="glyphicon glyphicon-arrow-left"></span>
+		View List
+	</a>
+	<button type="submit" class="btn btn-primary">
+		<span class="glyphicon glyphicon-save"></span>
+		Update
+	</button>
+</form>
+{{/with}}

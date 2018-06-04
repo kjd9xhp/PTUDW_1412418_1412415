@@ -1,0 +1,52 @@
+{{#section 'css'}}
+<link rel="stylesheet" href="/css/login.css">
+<style type="text/css">
+    label {
+        font-weight: normal !important;
+    }
+</style>
+{{/section}} {{#if showError}}
+<div class="alert alert-danger">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+    <strong>Title!</strong> {{errorMsg}}
+</div>
+{{/if}}
+
+<div class="login-1">
+    <span style="font-size: 32px; color: #008340; font-weight: bold;">
+        <p>Đăng Nhập</p>
+    </span>
+    <p>
+        <span>Chưa có tài khoản?</span>
+        <a href="http://localhost:3000/register" class="sub-login">Đăng ký ngay</a>
+    </p>
+    <div class="login-box">
+        <form class="form-horizontal">
+            <div class="form-group">
+                <label for="examplelogin">Tài khoản</label>
+                <input type="login" class="form-control" id="exampleInputlogin" placeholder="Tài khoản">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputpassword">Mật khẩu</label>
+                <input type="password" class="form-control" id="exampleInputpassword" placeholder="Mật khẩu">
+            </div>
+            <div class="forgot-password">
+                <a href="" class="sub-login">Quên mật khẩu?</a>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox"> Nhớ tài khoản
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-default signin">Đăng nhập</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

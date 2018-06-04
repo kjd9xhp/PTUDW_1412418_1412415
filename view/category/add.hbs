@@ -1,0 +1,63 @@
+{{#section 'title'}}
+	Add Category
+{{/section}}
+
+{{#if showAlert}}
+<div class="alert alert-success">
+	<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+	Category added.
+</div>
+{{/if}}
+
+<form action="" method="POST" role="form">
+	<div class="form-group">
+		<label for="">Tên sách</label>
+		<input type="text" class="form-control" id="" name="ProName" placeholder="smartphone">
+	</div>
+
+	<div class="form-group">
+		<label for="">Nhà xuất bản</label>
+		<input type="text" class="form-control" id="" name="ProNXB" placeholder="không">
+	</div>
+
+	<div class="form-group">
+		<label for="">Thể loại</label>
+		<input type="text" class="form-control" id="" name="ProKind" placeholder="không">
+	</div>
+
+	<div class="form-group">
+		<label for="">Mô tả</label>
+		<input type="text" class="form-control" id="" name="TinyDes" placeholder="không">
+	</div>
+
+	<div class="form-group">
+		<label for="">Mô tả chi tiết</label>
+		<input type="text" class="form-control" id="" name="FullDes" placeholder="không">
+	</div>
+
+	<div class="form-group">
+		<label for="">Giá</label>
+		<input type="text" class="form-control" id="" name="Price" placeholder="không">
+	</div>
+
+	<div class="form-group">
+		<label for="">Số lượng</label>
+		<input type="text" class="form-control" id="" name="Quantiny" placeholder="không">
+	</div>
+
+<form class="fileupload" action="upload" method="post" enctype="multipart/form-data">
+      <h1>Upload File Here</h1>
+      <input type="file" name="upfile" value="">
+      <input type="submit" />
+    </form>
+
+	<a class="btn btn-default" href="/category/list" role="button">
+		<span class="glyphicon glyphicon-arrow-left"></span>
+		View list
+	</a>
+	<button type="submit" class="btn btn-primary">
+		<span class="glyphicon glyphicon-check"></span>
+		Save
+	</button>
+</form>
+
