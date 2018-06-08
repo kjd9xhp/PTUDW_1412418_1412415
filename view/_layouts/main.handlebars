@@ -6,13 +6,12 @@
 	<link rel="stylesheet" type="text/css" href="/assets/bootstrap-3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" href="/css/list.css">{{{_sections.css}}}
 </head>
-
 <body>
 	<div class="container">
 		<div class="row">
 			<div class="col-md-3">
 				<a href="http://localhost:3000/">
-					<img src="imgs/Book-online.jpe" alt="">
+					<img src="/imgs/Book-online.jpe" alt="">
 				</a>
 			</div>
 			<div class="col-md-7">
@@ -45,26 +44,13 @@
 			<div class="col-md-2">
 				<div class="login">
 					{{#if layoutVM.isLogged}}
-					<li>
-						<a href="#">Link</a>
-					</li>
-					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown
-							<b class="caret"></b>
-						</a>
+					<form id="frmLogout" method="post" action="/account/logout"></form>
+					<li style="margin-top: -45px;"><a href="/cart">Shopping Cart (0 items)</a></li>
+					<li class="dropdown" style="margin-top: -12px;">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">{{layoutVM.curUser.f_Name}} <b class="caret"></b></a>
 						<ul class="dropdown-menu">
-							<li>
-								<a href="#">Action</a>
-							</li>
-							<li>
-								<a href="#">Another action</a>
-							</li>
-							<li>
-								<a href="#">Something else here</a>
-							</li>
-							<li>
-								<a href="#">Separated link</a>
-							</li>
+							<li><a href="#">Profile</a></li>
+							<li><a id="lnkLogout" href="javascript:;">Logout</a></li>
 						</ul>
 					</li>
 					{{else}}
@@ -182,18 +168,112 @@
 	</div>
 	<div class="container">
 		<div class="row">
-				<div class="panel-heading">
-					<h3 class="panel-title">
-						{{{_sections.title}}}
-					</h3>
-				</div>
-				<div class="panel-body1">
-					{{{body}}}
+			<div class="panel-body1">
+				<div class="container">
+					<div class="col-md-3">
+						<div class="list-categories">
+							<div class="title-list-categories">Danh mục</div>
+							<ul class="list-caretories-1">
+								<li>
+									<a href="">
+										<span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span>
+										<span style="font-weight: bold; font-size: 16px;">Thể loại</span>
+									</a>
+									<ul class="sub-list-categories">
+										{{#each layoutVM.categories1}}
+										<li>
+											<a href="/product/byKind/{{KID}}">{{KindName}}</a>
+										</li>
+										{{/each}}
+									</ul>
+								</li>
+								<li class="list-caretories-title-2">
+									<a href="">
+										<span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span>
+										<span style="font-weight: bold; font-size: 16px;">NXB</span>
+									</a>
+									<ul class="sub-list-categories">
+										{{#each layoutVM.categories1}}
+										<li>
+											<a href="/product/byCat/{{NXBID}}">{{NXBName}}</a>
+										</li>
+										{{/each}}
+									</ul>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-md-9">
+						<div class="panel-heading">
+							{{{_sections.title}}}
+						</div>
+						{{{body}}}
+					</div>
 				</div>
 			</div>
+		</div>
 	</div>
+	<div class="web-footer-1">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-5">
+				<div class="col-md-8">
+					<div class="image-logo-footer"><img src="/imgs/Book-online.jpe" alt=""></div>		
+					<div class="title-footer">
+						<span style="color: white">BookOnline</span> là trang website chuyên bán tất cả các loại sách hành đầu Việt Nam
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="title-footer-1">
+					Về chúng tôi
+				</div>
+				<div class="menu-footer">
+					<ul class="list-group-1">
+						<li class="list-group-item-2"><a href="" class="list-group-item-1">Trang chủ</a></li>
+						<li class="list-group-item-2"><a href="" class="list-group-item-1">Giới thiệu</a></li>
+						<li class="list-group-item-2"><a href="" class="list-group-item-1">Tin tức</a></li>
+						<li class="list-group-item-2"><a href="" class="list-group-item-1">Hướng dẫn</a></li>
+						<li class="list-group-item-2"><a href="" class="list-group-item-1">Chính sách & điều khoản</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="col-md-3">
+				<div class="folow">
+					<div class="title-footer-2">
+						Liên hệ với chúng tôi
+					</div>
+					<div class="image-folow">
+						<a href=""><img src="/imgs/facebook.png" alt=""></a>
+						<a href=""><img src="/imgs/twitter.png" alt=""></a>
+						<a href=""><img src="/imgs/youtube.png" alt=""></a>
+						<a href=""><img src="/imgs/google.png" alt=""></a>
+						<a href=""><img src="/images/tumblr.png" alt=""></a>
+					</div>
+					<div class="app-folow">
+						<a href=""><img src="/imgs/android.png" alt=""></a>
+						<a href=""><img src="/imgs/appstore.png" alt=""></a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="web-footer-2">
+	<div class="container">
+		<div class="copyright-text">
+			Nhóm 40 - Phát triển ứng dụng web
+		</div>
+	</div>
+</div>
 	<script type="text/javascript" src="/assets/jquery-3.1.1.min.js"></script>
-	<script type="text/javascript" src="/assets/bootstrap-3.3.7/js/bootstrap.min.js"></script> {{{_sections.js}}}
+	<script type="text/javascript" src="/assets/bootstrap-3.3.7/js/bootstrap.min.js"></script> 
+	<script type="text/javascript">
+		$('#lnkLogout').on('click', function() {
+			$('#frmLogout').submit();
+		});
+	</script>
+	{{{_sections.js}}}
 </body>
 
 </html>

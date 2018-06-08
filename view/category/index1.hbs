@@ -1,0 +1,17 @@
+{{#section 'title'}} Categoriess {{/section}}
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">Categories</h3>
+    </div>
+    <div class="list-group">
+        {{#each categories1}}
+        <a href="/product/byCat/{{CatID}}" class="list-group-item">{{CatName}}</a>
+        {{/each}}
+    </div>
+</div>
+
+<a class="btn btn-large btn-block btn-primary" href="/category/list" role="button">
+    <span class="glyphicon glyphicon-list-alt"></span>
+    Quản lý sản phẩm
+</a>

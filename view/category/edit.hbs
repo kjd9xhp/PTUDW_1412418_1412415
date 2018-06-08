@@ -1,28 +1,40 @@
 {{#section 'title'}}
-	Edit Category
+	Sửa  sản phẩm
 {{/section}}
 
 {{#with category}}
-<form action="" method="POST" role="form">
+<form action="" method="POST" role="form" class="form-manager">
 	<div class="form-group">
 		<label for="">#</label>
 		<input type="text" class="form-control" id="" name="ProId" value="{{ProID1}}" readonly>
 	</div>
 	<div class="form-group">
-		<label for="">Category Name</label>
+		<label for="">Tên sách</label>
 		<input type="text" class="form-control" id="" name="ProName" value="{{ProName1}}">
 	</div>
 
 <div class="form-group">
-		<label for="">Decription</label>
+		<label for="">Nhà Xuất Bản</label>
 		<input type="text" class="form-control" id="" name="ProNXB" value="{{ProNXB1}}">
 	</div>
+	<div class="form-group">
+		<label for="">Thể loại</label>
+		<input type="text" class="form-control" id="" name="ProKind" value="{{ProKind1}}">
+	</div>
+	<div class="form-group">
+		<label for="">Giá</label>
+		<input type="text" class="form-control" id="" name="Price" value="{{Price1}}">
+	</div>
+	<div class="form-group">
+		<label for="">Số lượng</label>
+		<input type="text" class="form-control" id="" name="Quantity" value="{{Quantity1}}">
+	</div>
 
-	<a class="btn btn-default" href="/category/list" role="button">
+	<a class="btn btn-default view" href="/category" role="button">
 		<span class="glyphicon glyphicon-arrow-left"></span>
 		View List
 	</a>
-	<button type="submit" class="btn btn-primary">
+	<button type="submit" class="btn btn-default save">
 		<span class="glyphicon glyphicon-save"></span>
 		Update
 	</button>

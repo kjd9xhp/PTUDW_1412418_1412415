@@ -1,7 +1,3 @@
-{{#section 'title'}}
-	Product List
-{{/section}}
-
 {{#if noProducts}}
 <div class="row">
 	<div class="col-sm-12 col-md-12 col-lg-12">
@@ -14,13 +10,13 @@
 	{{#each products}}
 	<div class="col-sm-6 col-md-4">
 		<div class="thumbnail">
-			<img src="/imgs/sp/{{ProID}}/main_thumbs.jpg" alt="{{ProName}}" title="{{ProName}}">
+			<img src="/imgs/sp/{{ProID1}}/main_thumbs.jpg" alt="{{ProName}}" title="{{ProName}}">
 			<div class="caption">
-				<h4>{{ProName}}</h4>
-				<h4>{{number_format Price}}</h4>
-				<p style="min-height: 60px">{{TinyDes}}</p>
+				<h4>{{ProNXB1}}</h4>
+				<h4>{{number_format Price1}}</h4>
+				<p style="min-height: 60px">{{ProKind1}}</p>
 				<p>
-					<a href="#" class="btn btn-primary" role="button">
+					<a href="/product/detail/{{ProID1}}" class="btn btn-primary" role="button">
 						<span class="glyphicon glyphicon-eye-open"></span>
 						Details
 					</a>

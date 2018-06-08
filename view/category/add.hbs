@@ -1,18 +1,18 @@
 {{#section 'title'}}
-	Add Category
+	Thêm sản phẩm
 {{/section}}
 
 {{#if showAlert}}
 <div class="alert alert-success">
 	<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-	Category added.
+	Thêm thành công.
 </div>
 {{/if}}
 
-<form action="" method="POST" role="form">
+<form action="" method="POST" role="form" class="form-manager">
 	<div class="form-group">
 		<label for="">Tên sách</label>
-		<input type="text" class="form-control" id="" name="ProName" placeholder="smartphone">
+		<input type="text" class="form-control" id="" name="ProName" placeholder="Tên sách">
 	</div>
 
 	<div class="form-group">
@@ -26,36 +26,29 @@
 	</div>
 
 	<div class="form-group">
-		<label for="">Mô tả</label>
-		<input type="text" class="form-control" id="" name="TinyDes" placeholder="không">
-	</div>
-
-	<div class="form-group">
-		<label for="">Mô tả chi tiết</label>
-		<input type="text" class="form-control" id="" name="FullDes" placeholder="không">
-	</div>
-
-	<div class="form-group">
 		<label for="">Giá</label>
 		<input type="text" class="form-control" id="" name="Price" placeholder="không">
 	</div>
 
 	<div class="form-group">
 		<label for="">Số lượng</label>
-		<input type="text" class="form-control" id="" name="Quantiny" placeholder="không">
+		<input type="text" class="form-control" id="" name="Quantity" placeholder="không">
 	</div>
 
-<form class="fileupload" action="upload" method="post" enctype="multipart/form-data">
-      <h1>Upload File Here</h1>
-      <input type="file" name="upfile" value="">
-      <input type="submit" />
-    </form>
+	<div class="form-group">
+		<label for="">Mô tả</label>
+		<input type="text" class="form-control" id="" name="TinyDes" placeholder="không">
+	</div>
 
-	<a class="btn btn-default" href="/category/list" role="button">
+	<div class="form-group" style="margin-bottom: 2px; margin-top: 20px;">
+		<label for="">Mô tả chi tiết</label>
+	</div>
+	<textarea name="FullDes" rows="10" cols="100" class="form-control" placeholder="Mô tả chi tiết"></textarea>
+	<a class="btn btn-default view" href="/category" role="button">
 		<span class="glyphicon glyphicon-arrow-left"></span>
 		View list
 	</a>
-	<button type="submit" class="btn btn-primary">
+	<button type="submit" class="btn btn-default save">
 		<span class="glyphicon glyphicon-check"></span>
 		Save
 	</button>
