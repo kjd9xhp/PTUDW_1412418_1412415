@@ -26,7 +26,11 @@ router.post('/register', (req, res) => {
     };
 
     accountRepo.add(user).then(value => {
-        res.render('account/register');
+        var vm = {
+            showTitle: true,
+            errorMsg: 'Đăng kí thành công'
+        };
+        res.render('account/register', vm);
     });
 });
 
@@ -37,25 +41,44 @@ router.get('/login', (req, res) => {
 router.post('/login', (req, res) => {
     var user = {
         username: req.body.username,
-        password: SHA256(req.body.rawPWD).toString()
+        password: SHA256(req.body.rawPWD).toString(),
     };
-
     accountRepo.login(user).then(rows => {
-        if (rows.length > 0) {
-            req.session.isLogged = true;
-            req.session.user = rows[0];
-            req.session.cart = [];
+        Object.keys(rows).forEach(function (key) {
+            var row = rows[key];
+            console.log(row.f_Username)
+            console.log(row.f_Name)
+            console.log(row.f_Permission)
+            if (rows.length > 0) {
+                if (row.f_Permission == '0') {
+                    req.session.isLogged = true;
+                    req.session.user = rows[0];
+                    req.session.cart = [];
 
-            var url = '/';
-            if (req.query.retUrl) {
-                url = req.query.retUrl;
+                    var url = '/';
+                    if (req.query.retUrl) {
+                        url = req.query.retUrl;
+                    }
+                    res.redirect(url);
+                } else {
+                    req.session.isLogged = true;
+                    req.session.isLogged1 = true;
+                    req.session.user = rows[0];
+                    req.session.cart = [];
+
+                    var url = '/category';
+                    if (req.query.retUrl) {
+                        url = req.query.retUrl;
+                    }
+                    res.redirect(url);
+                }
+
             }
-            res.redirect(url);
-
-        } else {
+        });
+        if (rows.length <= 0) {
             var vm = {
                 showError: true,
-                errorMsg: 'Login failed'
+                errorMsg: 'Đăng nhập thất bại'
             };
             res.render('account/login', vm);
         }
@@ -68,6 +91,7 @@ router.get('/profile', restrict, (req, res) => {
 
 router.post('/logout', (req, res) => {
     req.session.isLogged = false;
+    req.session.isLogged1 = false;
     req.session.user = null;
     // req.session.cart = [];
     res.redirect(req.headers.referer);

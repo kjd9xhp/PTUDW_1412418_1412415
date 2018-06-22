@@ -13,6 +13,8 @@ router.get('/', (req, res) => {
         arr_p.push(p);
     }
 
+    var temp = 0;
+    var count;
     var items = [];
     Promise.all(arr_p).then(result => {
         for (var i = result.length - 1; i >= 0; i--) {
@@ -20,13 +22,15 @@ router.get('/', (req, res) => {
             var item = {
                 Product: pro,
                 Quantity: req.session.cart[i].Quantity,
-                Amount: pro.Price * req.session.cart[i].Quantity
+                Amount: pro.Price1 * req.session.cart[i].Quantity,
             };
             items.push(item);
+            temp = item.Amount + temp;
         }
-
         var vm = {
-            items: items
+            items: items,
+            showMoney : true,
+            Money : temp
         };
         res.render('cart/index', vm);
     });

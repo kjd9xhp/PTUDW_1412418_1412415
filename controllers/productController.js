@@ -4,28 +4,49 @@ var config = require('../config/config');
 
 var router = express.Router();
 
-// router.get('/byCat', (req, res) => {
-//     var catId = req.query.catId;
-//     productRepo.loadAllByCat(catId).then(rows => {
-//         var vm = {
-//             products: rows
-//         };
-//         res.render('product/byCat', vm);
-//     });
-// });
+router.get('/byKind', (req, res) => {
+    var catId = req.query.catId;
+    productRepo.loadAllByCat1(catId).then(rows => {
+        var vm = {
+            products: rows
+        };
+        res.render('product/byCat', vm);
+    });
+});
 
-// router.get('/byCat/:catId', (req, res) => {
-//     var catId = req.params.catId;
-//     productRepo.loadAllByCat(catId).then(rows => {
-//         var vm = {
-//             products: rows,
-//             noProducts: rows.length === 0
-//         };
-//         res.render('product/byCat', vm);
-//     });
-// });
+router.get('/byKind/:catId', (req, res) => {
+    var catId = req.params.catId;
+    productRepo.loadAllByCat1(catId).then(rows => {
+        var vm = {
+            products: rows,
+            noProducts: rows.length === 0
+        };
+        res.render('product/byCat', vm);
+    });
+});
 
-router.get('/byCat/:catId', (req, res) => {
+router.get('/byCat', (req, res) => {
+     var catId = req.query.catId;
+     productRepo.loadAllByCat(catId).then(rows => {
+         var vm = {
+             products: rows
+         };
+         res.render('product/byCat', vm);
+     });
+ });
+
+ router.get('/byCat/:catId', (req, res) => {
+     var catId = req.params.catId;
+     productRepo.loadAllByCat(catId).then(rows => {
+         var vm = {
+             products: rows,
+             noProducts: rows.length === 0
+         };
+         res.render('product/byCat', vm);
+     });
+});
+
+/*router.get('/byCat/:catId', (req, res) => {
     var catId = req.params.catId;
 
     var page = req.query.page;
@@ -62,7 +83,7 @@ router.get('/byCat/:catId', (req, res) => {
         };
         res.render('product/byCat', vm);
     });
-});
+});*/
 
 router.get('/detail/:proId', (req, res) => {
     var proId = req.params.proId;
