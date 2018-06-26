@@ -2,6 +2,7 @@
 	Sửa  sản phẩm
 {{/section}}
 
+{{#if layoutVM.isLogged1}}
 {{#with category}}
 <form action="" method="POST" role="form" class="form-manager">
 	<div class="form-group">
@@ -30,6 +31,16 @@
 		<input type="text" class="form-control" id="" name="Quantity" value="{{Quantity1}}">
 	</div>
 
+	<div class="form-group">
+		<label for="">Mô tả</label>
+		<input type="text" class="form-control" id="" name="TinyDes" value="{{TinyDes1}}">
+	</div>
+
+	<div class="form-group" style="margin-bottom: 2px; margin-top: 20px;">
+		<label for="">Mô tả chi tiết</label>
+	</div>
+	<textarea name="FullDes" rows="10" cols="100" class="form-control" placeholder="Mô tả chi tiết">{{TinyDes1}}</textarea>
+
 	<a class="btn btn-default view" href="/category" role="button">
 		<span class="glyphicon glyphicon-arrow-left"></span>
 		View List
@@ -40,3 +51,10 @@
 	</button>
 </form>
 {{/with}}
+
+{{else}}
+	<div class="alert alert-danger">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+    <strong>Thông báo!</strong> Bạn không có quyên truy cập
+</div>
+{{/if}}

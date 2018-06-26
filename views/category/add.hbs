@@ -9,7 +9,8 @@
 </div>
 {{/if}}
 
-<form action="" method="POST" role="form" class="form-manager">
+{{#if layoutVM.isLogged1}}
+<form action="" enctype="multipart/form-data" method="POST" role="form" class="form-manager" >
 	<div class="form-group">
 		<label for="">Tên sách</label>
 		<input type="text" class="form-control" id="" name="ProName" placeholder="Tên sách">
@@ -44,6 +45,12 @@
 		<label for="">Mô tả chi tiết</label>
 	</div>
 	<textarea name="FullDes" rows="10" cols="100" class="form-control" placeholder="Mô tả chi tiết"></textarea>
+
+	<div class="form-group">
+		<label for="">Hình ảnh mô tả</label>
+		<input type="file" name="photo" />
+	</div>
+
 	<a class="btn btn-default view" href="/category" role="button">
 		<span class="glyphicon glyphicon-arrow-left"></span>
 		View list
@@ -53,4 +60,11 @@
 		Save
 	</button>
 </form>
+
+{{else}}
+	<div class="alert alert-danger">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+    <strong>Thông báo!</strong> Bạn không có quyên truy cập
+</div>
+{{/if}}
 

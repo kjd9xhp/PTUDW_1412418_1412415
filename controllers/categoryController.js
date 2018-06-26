@@ -36,7 +36,7 @@ router.post('/delete', (req, res) => {
 
 router.get('/edit', (req, res) => {
     categoryRepo.single(req.query.id).then(c => {
-        // console.log(c);
+        //console.log(c);
         var vm = {
             category: c
         };

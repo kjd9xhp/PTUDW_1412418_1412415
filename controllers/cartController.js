@@ -29,11 +29,46 @@ router.get('/', (req, res) => {
         }
         var vm = {
             items: items,
-            showMoney : true,
-            Money : temp
+            showMoney: true,
+            Money: temp
         };
         res.render('cart/index', vm);
     });
+});
+
+router.post('/', (req, res) => {
+
+    var arr_p = [];
+    for (var i = 0; i < req.session.cart.length; i++) {
+        var cartItem = req.session.cart[i];
+        var p = productRepo.single(cartItem.ProId);
+        arr_p.push(p);
+    }
+
+    var items = [];
+    var temp = [];
+    Promise.all(arr_p).then(result => {
+        for (var i = result.length - 1; i >= 0; i--) {
+            var pro = result[i][0];
+            var item = {
+                Amount: pro.Price1 ,
+                ProIDD: req.session.cart[i].Quantity
+            };
+            items.push(item);   
+        }
+        console.log(items[0].Amount);
+        console.log(items[0].ProIDD);
+        console.log(items[1].Amount);
+        console.log(items[1].ProIDD);
+        cartRepo.add1(items).then(value => {
+            var vm = {
+                showTitle: true,
+                errorMsg: 'Đăng kí thành công'
+            };
+            res.render('cart/index', vm);
+        });
+    });
+    
 });
 
 router.post('/add', (req, res) => {

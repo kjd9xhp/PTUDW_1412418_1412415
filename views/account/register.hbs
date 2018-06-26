@@ -1,0 +1,77 @@
+{{#section 'title'}} Đăng ký {{/section}} {{#section 'css'}}
+<link rel="stylesheet" type="text/css" href="/css/login.css">
+<link rel="stylesheet" type="text/css" href="/assets/bootstrap-datepicker/css/bootstrap-datepicker3.min.css"> {{/section}} {{#section 'js'}}
+<script src="/assets/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+<script type="text/javascript">
+    $('#txtDOB').datepicker({
+        format: 'd/m/yyyy',
+        autoclose: true
+    });
+
+    var validate = function () {
+        if ($('#txtUsername').val().length === 0) {
+            alert('Error');
+            return false;
+        }
+
+        if ($('#txtPWD').val() !== $('#txtCPWD').val()) {
+            alert('not match');
+            return false;
+        }
+
+        return true;
+    }
+</script> {{/section}}
+
+{{#if showTitle}}
+<div class="alert alert-success">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+    <strong>Thông báo!</strong> {{errorMsg}}
+</div>
+{{/if}}
+
+{{#if layoutVM.isLogged}}
+<div class="alert alert-danger">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+    <strong>Thông báo!</strong> Bạn không có quyên truy cập
+</div>
+
+{{else}}
+<div class="col-md-6 col-md-offset-3">
+    <p style="text-align: center;">
+        <span>Đã có tài khoản?</span>
+        <a href="/account/login" class="sub-login">Đăng nhập ngay</a>
+    </p>
+    <div class="login-box">
+        <form action="" method="POST" class="form-horizontal" role="form" onsubmit="return validate();">
+            <div class="form-group">
+                <label for="txtUsername">Tên đăng nhập</label>
+                <input type="text" class="form-control" id="txtUsername" placeholder="Tên đăng nhập" name="username">
+            </div>
+            <div class="form-group">
+                <label for="txtPWD">Password</label>
+                <input type="password" class="form-control" id="txtPWD" placeholder="Password" name="rawPWD">
+            </div>
+            <div class="form-group">
+                <label for="txtCPWD">Nhập lại</label>
+                <input type="password" class="form-control" id="txtCPWD" placeholder="Nhập lại password" name="cPWD">
+            </div>
+            <div class="form-group">
+                <label for="txtName">Họ tên</label>
+                <input type="text" class="form-control" id="txtName" placeholder="Họ tên" name="name">
+            </div>
+            <div class="form-group">
+                <label for="txtEmail">Email</label>
+                <input type="text" class="form-control" id="txtEmail" placeholder="Email" name="email">
+            </div>
+            <div class="form-group">
+                <label for="txtDOB">Ngày sinh</label>
+                <input type="text" class="form-control" id="txtDOB" placeholder="d/m/yyyy" name="dob">
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-default signin">Đăng kí</button>
+            </div>
+        </form>
+    </div>
+</div>
+{{/if}}

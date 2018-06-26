@@ -46,9 +46,6 @@ router.post('/login', (req, res) => {
     accountRepo.login(user).then(rows => {
         Object.keys(rows).forEach(function (key) {
             var row = rows[key];
-            console.log(row.f_Username)
-            console.log(row.f_Name)
-            console.log(row.f_Permission)
             if (rows.length > 0) {
                 if (row.f_Permission == '0') {
                     req.session.isLogged = true;

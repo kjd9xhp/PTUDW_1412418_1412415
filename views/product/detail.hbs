@@ -1,0 +1,76 @@
+{{#section 'title'}} Chi tiết sách {{/section}} {{#with product}}
+<div class="detail-product">
+	<div class="row">
+		<div class="col-md-3">
+			<img src="/imgs/products/{{ProName1}}.jpeg" alt="" class="image-detail">
+		</div>
+		<div class="col-md-5">
+			<h2 class="title-book">Để con được ốm</h2>
+			<div class="detail-book">
+				<div class="content-book">
+					<p class="content-book-1">Thể loại: {{ProKind1}}</p>
+					<p class="content-book-1">Nhà xuất bản: {{ProNXB1}}</p>
+					<p class="content-book-1">Số lượng: {{Quantity1}}</p>
+					<p class="content-book-1">Giá: {{number_format Price1}} ₫</p>
+					<p class="content-book-1">Mô tả: {{TinyDes1}}...
+						<span>
+							<a href="#intro">
+								<span class="glyphicon glyphicon-forward" aria-hidden="true"></span>
+								Xem thêm nhiều hơn</a>
+						</span>
+					</p>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="pay-box">
+				<h3 class="title-book-2">Thông tin thanh toán</h3>
+				<div class="content-pay">
+					<p class="content-pay-1">
+						<span>Lượt xem:</span>
+						<span style="color: #008340 ;font-size: 18px ; padding-left: 80px">5.000</span>
+					</p>
+					<p class="content-book-1">
+						<span>Lượt bán:</span>
+						<span style="color: #008340 ;font-size: 18px ; padding-left: 83px">1.000</span>
+					</p>
+					<p class="content-book-1">
+						<span>Giá bán:</span>
+						<span style="color: #008340 ;font-size: 18px ; padding-left: 95px">{{Price1}} ₫</span>
+					</p>
+				</div>
+				{{/with}} {{#if layoutVM.isLogged}}
+				<form class="form-horizontal" id="frmAddItem" method="post" action="/cart/add" style="padding-top:20px;">
+					<div class="form-group">
+						<div class="col-sm-4">
+							<div class="input-group" style="margin-left: 16px;">
+								<input name="proId" type="hidden" value="{{product.ProID1}}">
+								<input id="txtQ" name="quantity" type="text" class="form-control" placeholder="Slg" value="1" style="width: 160px;">
+								<span class="input-group-btn">
+									<button class="btn btn-primary" type="submit">
+										<span class="glyphicon glyphicon-plus"></span>
+									</button>
+								</span>
+							</div>
+						</div>
+					</div>
+				</form>
+				{{/if}}
+			</div>
+		</div>
+	</div>
+</div>
+{{#with product}}
+<div class="container">
+	<div class="body-title-1" name="intro">
+		Giới thiệu sách
+	</div>
+	<div class="introduce-book">
+		<p>
+			<span style="color: red ; font-size: 16px">{{ProName1}}</span>
+		</p>
+		<p>
+			<span style="font-weight: bold;">{{ProName1}} </span> {{FullDes1}}</p>
+	</div>
+</div>
+{{/with}}
