@@ -94,4 +94,26 @@ router.post('/logout', (req, res) => {
     res.redirect(req.headers.referer);
 });
 
+router.get('/', (req, res) => {
+    accountRepo.loadAll().then(rows => {
+        var vm = {
+            account: rows
+        };
+        res.render('account/index', vm);
+    });
+});
+
+router.get('/delete', (req, res) => {
+    var vm = {
+        f_ID: req.query.id
+    }
+    res.render('account/delete', vm);
+});
+
+router.post('/delete', (req, res) => {
+    accountRepo.delete(req.body.ProID1).then(value => {
+        res.redirect('/account');
+    });
+});
+
 module.exports = router;

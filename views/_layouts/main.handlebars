@@ -47,7 +47,7 @@
 					<form id="frmLogout" method="post" action="/account/logout"></form>
 					<li style="margin-top: -45px;"><a href="/cart">Shopping Cart (0 items)</a></li>
 					<li class="dropdown" style="margin-top: -12px;">
-						<a href="/cart" class="dropdown-toggle" data-toggle="dropdown">{{layoutVM.curUser.f_Name}} <b class="caret"></b></a>
+						<a href="/cart" class="dropdown-toggle" data-toggle="dropdown" name='logged'>{{layoutVM.curUser.f_Name}} <b class="caret"></b></a>
 						<ul class="dropdown-menu">
 							<li><a href="/account/profile">Profile</a></li>
 							<li><a id="lnkLogout" href="javascript:;">Logout</a></li>

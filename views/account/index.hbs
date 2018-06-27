@@ -1,5 +1,5 @@
 {{#section 'title'}}
-	Quản lý sản phẩm
+	Quản lý tài khoản
 {{/section}}
 
 {{#if layoutVM.isLogged1}}
@@ -7,38 +7,30 @@
 	<thead>
 		<tr>
 			<th class="col-md-1">#</th>
-			<th>Tên sách</th>
-			<th>Nhà xuất bản</th>
-			<th>Thể loại</th>
-			<th>Giá</th>
-			<th>Số lượng</th>
+			<th>Tên tài khoản</th>
+			<th>Họ và tên</th>
+			<th>Email</th>
+			<th>Loại tài khoản</th>
 		</tr>
 	</thead>
 	<tbody>
-		{{#each categories}}
+		{{#each account}}
 		<tr>
-			<td>{{ProID1}}</td>
-			<td>{{ProName1}}</td>
-			<td>{{ProNXB1}}</td>
-			<td>{{ProKind1}}</td>
-			<td>{{Price1}}</td>
-			<td>{{Quantity1}}</td>
+            <td>{{f_ID}}</td>
+			<td>{{f_Username}}</td>
+            <td>{{f_Name}}</td>
+            <td>{{f_Email}}</td>
+            <td>{{f_Permission}}</td>
+			
 			<td class="text-right">
-				<a class="btn btn-danger btn-xs" href="/category/delete?id={{ProID1}}" role="button">
+				<a class="btn btn-danger btn-xs" href="/account/delete?id={{f_ID}}" role="button">
 					<span class="glyphicon glyphicon-remove"></span>
-				</a>
-				<a class="btn btn-primary btn-xs" href="/category/edit?id={{ProID1}}" role="button">
-					<span class="glyphicon glyphicon-wrench"></span>
 				</a>
 			</td>
 		</tr>
 		{{/each}}
 	</tbody>
 </table>
-<a class="btn btn-large btn-block btn-primary" href="/category/add" role="button">
-	<span class="glyphicon glyphicon-plus"></span>
-	Thêm danh mục mới
-</a>
 
 <a class="btn btn-large btn-block btn-primary" href="/category" role="button" style="background-color: #286090">
 	<span class="glyphicon glyphicon-share-alt"></span>

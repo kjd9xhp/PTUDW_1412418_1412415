@@ -1,26 +1,24 @@
-{{#section 'title'}} Your Shopping Cart {{/section}} {{#section 'js'}}
+{{#section 'title'}} Sản phẩm của bạn {{/section}} {{#section 'js'}}
 <script type="text/javascript">
 	$('.removeItem').on('click', function () {
 		var id = $(this).data('proid');
 		$('#txtProId_R').val(id);
 		$('#frmRemoveItem').submit();
 	});
-</script> {{/section}}
-
-{{#if showTitle}}
+</script> {{/section}} {{#if showTitle}}
 <div class="alert alert-success">
-    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-    <strong>Thông báo!</strong> {{errorMsg}}
+	<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+	<strong>Thông báo!</strong> {{errorMsg}}
 </div>
 {{/if}}
 
-	<div class="row">
-		<div class="col-md-12">
-			<form id="frmRemoveItem" method="post" action="/cart/remove">
-				<input id="txtProId_R" type="text" name="ProId">
-			</form>
-			<form action="" method="POST" class="form-horizontal" role="form">
-            			<table class="table table-hover">
+<div class="row">
+	<div class="col-md-12">
+		<form id="frmRemoveItem" method="post" action="/cart/remove">
+			<input id="txtProId_R" type="text" name="ProId">
+		</form>
+		<form action="" method="POST" class="form-horizontal" role="form">
+			<table class="table table-hover">
 				<thead>
 					<tr>
 						<th class="col-sm-4">Sản phẩm</th>
@@ -33,7 +31,10 @@
 				<tbody id="list">
 					{{#each items}}
 					<tr>
-						<td><span name="ProID">{{Product.ProID1}}</span> - <span name="ProName">{{Product.ProName1}}</span></td>
+						<td>
+							<span name="ProID">{{Product.ProID1}}</span> -
+							<span name="ProName">{{Product.ProName1}}</span>
+						</td>
 						<td name="Price">{{number_format Product.Price1}}</td>
 						<td name="Quantity">{{Quantity}}</td>
 						<td name="Amount">{{number_format Amount}}</td>
@@ -54,18 +55,17 @@
 						</td>
 						<td class="text-danger" colspan="2">
 							{{#if showMoney}}
-							<h4>{{number_format Money}}</h4>
+							<h4 name='abc'>{{number_format Money}}</h4>
 							{{/if}}
 						</td>
 					</tr>
 				</tfoot>
 			</table>
-            <div class="form-group">
-                <button type="submit" class="btn btn-default signin">Đăng kí</button>
-            </div>
-        </form>
-		</div>
+			<div class="col-md-3 col-md-offset-3">
+				<div class="form-group">
+					<button type="submit" class="btn btn-default save">Thanh toán</button>
+				</div>
+			</div>
+		</form>
 	</div>
-
-	
-
+</div>

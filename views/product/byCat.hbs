@@ -11,47 +11,53 @@
 	<div class="col-sm-6 col-md-4">
 		<div class="thumbnail">
 			<div class="product-image">
-							<a href="/product/detail/{{ProID1}}">
-								<img src="/imgs/products/{{ProName1}}.jpeg" style="height: 245px;">
-							</a>
-						</div>
+				<a href="/product/detail/{{ProID1}}">
+					<img src="/imgs/products/{{ProName1}}.jpeg" style="height: 245px;">
+				</a>
+			</div>
 			<div class="caption">
-							<div class="book-name">
-								<a href="/product/detail/{{ProID1}}">{{ProName1}}</a>
-							</div>
-							<div class="description">
-								<p>{{TinyDes1}}</p>							
-							</div>
-							<div class="nxb">
-								<p style="float: left; padding-right: 55px;">{{ProNXB1}}</p>							
-								<p>{{ProKind1}}</p>
-							</div>
-							<div class="price-product">
-								{{number_format Price1}} ₫
-							</div>
-							<div class="price-regular">
-								69.000 ₫
-							</div>
-						</div>
+				<div class="book-name">
+					<a href="/product/detail/{{ProID1}}">{{ProName1}}</a>
+				</div>
+				<div class="description">
+					<p>{{TinyDes1}}</p>
+				</div>
+				<div class="nxb">
+					<p style="float: left; padding-right: 55px;">{{ProNXB1}}</p>
+					<p>{{ProKind1}}</p>
+				</div>
+				<div class="price-product">
+					{{number_format Price1}} ₫
+				</div>
+				<div class="price-regular">
+					69.000 ₫
+				</div>
+			</div>
 		</div>
 	</div>
 	{{/each}}
-	</div>
 </div>
 
 <ul class="pagination">
 	<li class="disabled">
-		<a href="#" aria-label="Previous"><span aria-hidden="true">«</span></a>
+		<a href="#" aria-label="Previous">
+			<span aria-hidden="true">«</span>
+		</a>
 	</li>
-	{{#each page_numbers}}
-		{{#if isCurPage}}
-			<li class="active"><a href="javascript:;">{{value}}</a></li>
-		{{else}}
-			<li><a href="?page={{value}}">{{value}}</a></li>
-		{{/if}}
-	{{/each}}
+	{{#each page_numbers}} {{#if isCurPage}}
+	<li class="active">
+		<a href="javascript:;">{{value}}</a>
+	</li>
+	{{else}}
 	<li>
-		<a href="#" aria-label="Next"><span aria-hidden="true">»</span></a></li>
-	</ul>
+		<a href="?page={{value}}">{{value}}</a>
+	</li>
+	{{/if}} {{/each}}
+	<li>
+		<a href="#" aria-label="Next">
+			<span aria-hidden="true">»</span>
+		</a>
+	</li>
+</ul>
 </nav>
 {{/if}}

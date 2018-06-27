@@ -37,6 +37,7 @@ router.get('/byCat', (req, res) => {
 
  router.get('/byCat/:catId', (req, res) => {
      var catId = req.params.catId;
+     console.log(catId);
      productRepo.loadAllByCat(catId).then(rows => {
          var vm = {
              products: rows,

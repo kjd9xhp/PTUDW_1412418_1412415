@@ -1,0 +1,19 @@
+{{#section 'title'}}
+	Xóa tài khoản
+{{/section}}
+
+{{#if layoutVM.isLogged1}}
+<form action="" method="POST" role="form" class="form-manager">
+	<input type="hidden" id="" name="ProID1" value="{{f_ID}}">	
+	<button type="submit" class="btn btn-danger remove">
+		<span class="glyphicon glyphicon-remove"></span>
+		Delete
+	</button>
+</form>
+
+{{else}}
+	<div class="alert alert-danger">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+    <strong>Thông báo!</strong> Bạn không có quyên truy cập
+</div>
+{{/if}}

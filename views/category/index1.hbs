@@ -1,17 +1,24 @@
-{{#section 'title'}} Categoriess {{/section}}
+{{#section 'title'}} Quản lý {{/section}}
 
-<div class="panel panel-default">
-    <div class="panel-heading">
-        <h3 class="panel-title">Categories</h3>
-    </div>
-    <div class="list-group">
-        {{#each categories1}}
-        <a href="/product/byCat/{{CatID}}" class="list-group-item">{{CatName}}</a>
-        {{/each}}
-    </div>
-</div>
-
-<a class="btn btn-large btn-block btn-primary" href="/category/list" role="button">
+{{#if layoutVM.isLogged1}}
+<a class="btn btn-large btn-block btn-primary" href="/category/list" role="button" style="margin-bottom: 50px;">
     <span class="glyphicon glyphicon-list-alt"></span>
     Quản lý sản phẩm
 </a>
+
+<a class="btn btn-large btn-block btn-primary" href="/account" role="button" style="margin-bottom: 50px;">
+    <span class="glyphicon glyphicon-user"></span>
+    Quản lý tài khoản
+</a>
+
+<a class="btn btn-large btn-block btn-primary" href="/cart/list" role="button">
+    <span class="glyphicon glyphicon-file"></span>
+    Quản lý đơn hàng
+</a>
+
+{{else}}
+	<div class="alert alert-danger">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+    <strong>Thông báo!</strong> Bạn không có quyên truy cập
+</div>
+{{/if}}

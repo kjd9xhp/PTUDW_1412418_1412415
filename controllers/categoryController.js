@@ -3,7 +3,7 @@ var categoryRepo = require('../repos/categoryRepo');
 var multer = require('multer');
 var router = express.Router();
 
-router.get('/index1', (req, res) => {
+router.get('/', (req, res) => {
     categoryRepo.loadAllCat().then(rows => {
         var vm = {
             categories1: rows
@@ -12,7 +12,7 @@ router.get('/index1', (req, res) => {
     });
 });
 
-router.get('/', (req, res) => {
+router.get('/list', (req, res) => {
     categoryRepo.loadAll().then(rows => {
         var vm = {
             categories: rows
@@ -30,7 +30,7 @@ router.get('/delete', (req, res) => {
 
 router.post('/delete', (req, res) => {
     categoryRepo.delete(req.body.ProID1).then(value => {
-        res.redirect('/category');
+        res.redirect('/category/list');
     });
 });
 
@@ -46,7 +46,7 @@ router.get('/edit', (req, res) => {
 
 router.post('/edit', (req, res) => {
     categoryRepo.update(req.body).then(value => {
-        res.redirect('/category');
+        res.redirect('/category/list');
     });
 });
 
