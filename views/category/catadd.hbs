@@ -1,0 +1,35 @@
+{{#section 'title'}}
+	Thêm sản phẩm
+{{/section}}
+
+{{#if showAlert}}
+<div class="alert alert-success">
+	<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+	Thêm thành công.
+</div>
+{{/if}}
+
+{{#if layoutVM.isLogged1}}
+<form action="" enctype="multipart/form-data" method="POST" role="form" class="form-manager" >
+	<div class="form-group">
+		<label for="">Tên nhà xuất bản</label>
+		<input type="text" class="form-control" id="" name="NXB" placeholder="Tên nhà xuất bản">
+	</div>
+
+	<a class="btn btn-default view" href="/category/cat" role="button">
+		<span class="glyphicon glyphicon-arrow-left"></span>
+		View list
+	</a>
+	<button type="submit" class="btn btn-default save">
+		<span class="glyphicon glyphicon-check"></span>
+		Save
+	</button>
+</form>
+
+{{else}}
+	<div class="alert alert-danger">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+    <strong>Thông báo!</strong> Bạn không có quyên truy cập
+</div>
+{{/if}}
+
