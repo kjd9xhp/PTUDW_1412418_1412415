@@ -1,0 +1,49 @@
+{{#section 'title'}}
+	Quản lý tài khoản
+{{/section}}
+
+{{#if layoutVM.isLogged1}}
+<table class="table table-hover">
+	<thead>
+		<tr>
+			<th class="col-md-1">#</th>
+			<th>Tên tài khoản</th>
+			<th>Họ và tên</th>
+			<th>Email</th>
+			<th>Loại tài khoản</th>
+		</tr>
+	</thead>
+	<tbody>
+		{{#each product}}
+		<tr>
+            <td>{{ProName1}}</td>
+			<td>{{ProName1}}</td>
+            <td>{{ProName1}}</td>
+            <td>{{ProName1}}</td>
+            <td>{{ProName1}}</td>
+			
+			<td class="text-right">
+				<a class="btn btn-danger btn-xs" href="/account/delete?id={{f_ID}}" role="button">
+					<span class="glyphicon glyphicon-remove"></span>
+				</a>
+			</td>
+		</tr>
+		{{/each}}
+	</tbody>
+</table>
+
+<a class="btn btn-large btn-block btn-primary" href="/category" role="button" style="background-color: #286090">
+	<span class="glyphicon glyphicon-share-alt"></span>
+	Quay lại
+</a>
+
+{{else}}
+	<div class="alert alert-danger">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+    <strong>Thông báo!</strong> Bạn không có quyên truy cập
+</div>
+{{/if}}
+
+
+
+
